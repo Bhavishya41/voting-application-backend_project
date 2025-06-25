@@ -1,0 +1,36 @@
+VOTING APPLICATION !!
+
+Functionalities:-
+
+1. user signin/singnup account
+2. see the candidates
+3. vote anyone candidate, user cant vote again
+4. there must be a route where all the lists of canidates and their live vote count will be shown in sorted order
+5. user will have to login using aadhar card number as his/her credentials
+6. there must be an admin panel who can add candidates and do any crud operations on those candidates
+7. user can also change their passwords
+8. admin can never put a vote
+
+-------------------------------------------------------------------------------------------------------------------
+
+Routes:- 
+
+authentication:
+    /signup: POST- create new user account
+    /signin: POST- log in to an existing account(aadharNo, password)
+
+Voting:
+    /candidates: GET- show the list of all candidates.
+    /vote/:candidateID: POST- vote for a specific candidate 
+
+Vote counts:
+    /vote/count: GET- show the live count of votes of all candidates in sorted order
+
+User profile:
+    /profile: GET- user can see his/her profile information
+    /profile/changePassword: PUT- user can change his password
+
+Admin panel:
+    /candidates: POST- add new candidates
+    /candidates/:candidateID: PUT- admin can update a candidate's information
+    /candidate/:candidateID: DELETE- admin can delete any candidate
