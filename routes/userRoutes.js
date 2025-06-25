@@ -38,7 +38,7 @@ router.post('/login', async(req, res) => {
         const {aadharCardNumber, password} = req.body;
 
         // Find the user by username
-        const user = await Person.findOne({aadharCardNumber: aadharCardNumber});
+        const user = await User.findOne({aadharCardNumber: aadharCardNumber});
 
         // If user does not exist or password does not match, return error
         if( !user || !(await user.comparePassword(password))){
@@ -64,7 +64,7 @@ router.get('/profile', jwtAuthMiddleware, async (req, res) => {
     try{
         const userData = req.user;
         const userId = userData.id;
-        const user = await Person.findById(userId);
+        const user = await User.findById(userId);
 
         res.status(200).json({user});
     }catch(err){
