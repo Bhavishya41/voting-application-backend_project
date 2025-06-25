@@ -14,3 +14,11 @@ app.use("/candidate", candidateRoutes);
 app.listen(port, () => {
     console.log(`server is listening on port ${port}`);
 })
+
+app.get("/", (req,res) => {
+    try{
+        res.send("This API is working properly, please use tools like postman to test various endpoints of this application");
+    }catch(err){
+        res.send("Internal server Error");
+    }
+})
